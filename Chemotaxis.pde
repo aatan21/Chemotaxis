@@ -1,39 +1,49 @@
-//declare bacteria variables here
-Bacteria[] aLot = new Bacteria[1];
+Bubble[] aLot = new Bubble[40];
 void setup()   
 {
   size(600, 600);
-  //initialize bacteria variables here
+  
   for (int i = 0; i < aLot.length; i++)
   {
-    aLot[i] = new Bacteria();
+    aLot[i] = new Bubble();
   }
 }   
 void draw()   
 {
-  background(136, 206, 235);   
-  //move and show the bacteria
+  background(136, 206, 235);
   for (int i = 0; i < aLot.length; i++)
   {
     aLot[i].move();
     aLot[i].show();
   }
 }  
-class Bacteria    
-{     
-  //lots of java!
-  int myX, myY;
-  Bacteria()
+void mousePressed()
+{
+  for (int i = 0; i < aLot.length; i++)
   {
-    myX = myY = 300;
+    aLot[i] = new Bubble();
+  }
+}
+class Bubble    
+{     
+  int myX, myY;
+  Bubble()
+  {
+    myX = mouseX;
+    myY = mouseY;
   }
   void move()
   {
-    myX += (int)(Math.random()*7) - 3;
-    myY += (int)(Math.random()*7) - 3;
+    myX += (int)(Math.random()*10) - 5;
+    myY += (int)(Math.random()*7) - 4;
   }
   void show()
   {
+    fill(255, 100);
+    noStroke();
+    ellipse(myX, myY, 60, 60);
+  }
+}
     noFill();
     ellipse(myX, myY, 30, 30);
   }
