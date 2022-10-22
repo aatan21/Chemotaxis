@@ -44,7 +44,3 @@ class Bubble
     ellipse(myX, myY, 60, 60);
   }
 }
-    noFill();
-    ellipse(myX, myY, 30, 30);
-  }
-}
